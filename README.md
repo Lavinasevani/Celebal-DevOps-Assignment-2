@@ -5,8 +5,7 @@ This repository contains the documentation and resources for a simulated Azure i
 ## 📁 Contents
 
 - `index.html` – A simple welcome page for Azure Web App deployment  
-- `azure-commands.txt` – Sample Azure CLI commands used in tasks  
-- `Azure_Assignment_Report.pdf` – A full report of the project steps and understanding  
+- `azure-commands.txt` – Sample Azure CLI commands used in tasks
 - `README.md` – This file  
 
 ## ✅ Tasks Covered
