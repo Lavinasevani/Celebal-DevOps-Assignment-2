@@ -1,0 +1,29 @@
+# Login to Azure
+az login
+
+# 1. Create Resource Group
+az group create --name azure-assignment-rg --location eastus
+
+# 2. Create Linux VM
+az vm create --resource-group azure-assignment-rg --name linuxVM --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
+
+# 3. Create Windows VM
+az vm create --resource-group azure-assignment-rg --name windowsVM --image Win2019Datacenter --admin-username azureuser --admin-password <YourSecurePassword>
+
+# 4. Create App Service Plan
+az appservice plan create --name MyPlan --resource-group azure-assignment-rg --sku B1 --is-linux
+
+# 5. Create Web App
+az webapp create --resource-group azure-assignment-rg --plan MyPlan --name mywebapp12345 --runtime "NODE|14-lts"
+
+# 6. Create ACR
+az acr create --resource-group azure-assignment-rg --name myContainerRegistry123 --sku Basic
+
+# 7. Create Container Instance
+az container create --resource-group azure-assignment-rg --name mycontainer --image myContainerRegistry123.azurecr.io/myimage:v1 --cpu 1 --memory 1.5 --registry-login-server myContainerRegistry123.azurecr.io
+
+# 8. Create VNet and Subnets
+az network vnet create --name myVnet --resource-group azure-assignment-rg --address-prefix 10.0.0.0/16 --subnet-name Subnet-1 --subnet-prefix 10.0.1.0/24
+
+# 9. Create Load Balancer, Application Gateway, DNS, Storage
+# (simplified due to time, full commands available in docs)
